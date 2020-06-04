@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
+use App\Models\Internship;
+use App\Models\InternshipAgency;
+use App\Models\InternshipProposal;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InternshipSubmissionController extends Controller
 {
@@ -14,7 +19,9 @@ class InternshipSubmissionController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = auth()->user()->id;
+        $proposals = InternshipProposal::all();
+        return view('klp04.submissions.index', compact('proposals'));
     }
 
     /**

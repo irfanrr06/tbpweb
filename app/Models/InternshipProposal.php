@@ -13,8 +13,8 @@ class InternshipProposal extends Model
     const STATUS_REJECTED = 4;
 
     const STATUSES = [
-        self::STATUS_DRAFT => 'Draft',
-        self::STATUS_SUBMITTED => 'Submitted',
+        self::STATUS_DRAFT => 'Belum Disetujui',
+        self::STATUS_SUBMITTED => 'Terkirim',
         self::STATUS_ACCEPTED => 'Diterima',
         self::STATUS_REVISED => 'Perlu Revisi',
         self::STATUS_REJECTED => 'Ditolak'
@@ -33,19 +33,19 @@ class InternshipProposal extends Model
     public function getStatusTextAttribute($value){
         switch ($this->status){
             case self::STATUS_DRAFT:
-                return "<span class=\"badge badge-secondary\">Draft</span>";
+                return "<span class=\"badge badge-secondary\">Belum Disetujui</span>";
                 break;
             case self::STATUS_SUBMITTED:
-                return "<span class=\"badge badge-info\">Submitted</span>";
+                return "<span class=\"badge badge-info\">Terkirim</span>";
                 break;
             case self::STATUS_ACCEPTED:
                 return "<span class=\"badge badge-success\">Diterima</span>";
                 break;
             case self::STATUS_REVISED:
-                return "<span class=\"badge badge-warning\">Revised</span>";
+                return "<span class=\"badge badge-warning\">Perlu Revisi</span>";
                 break;
             case self::STATUS_REJECTED:
-                return "<span class=\"badge badge-danger\">Rejected</span>";
+                return "<span class=\"badge badge-danger\">Ditolak</span>";
                 break;
 
 

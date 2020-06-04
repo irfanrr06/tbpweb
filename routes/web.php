@@ -101,10 +101,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Frontend', 'as' => 'fronte
 //    Route::resource('myinterns.logbooks', 'MyInternLogbookController');
 
         /** K04 - KAPRODI */
-//    Route::resource('internship-submission', 'InternshipSubmissionController')->only(['index', 'edit', 'update']);
-//    Route::resource('internships', 'InternshipController')->only(['index', 'show']);
-//    Route::resource('internship-supervisors', 'InternshipSupervisorController')->only(['create', 'store', 'destroy']);
-//    Route::resource('internship-cancellation', 'InternshipCancellationController')->only(['edit', 'update']);
+    Route::resource('internship-submission', 'InternshipSubmissionController')->only(['index', 'edit', 'update']);
+    Route::resource('internships', 'InternshipController')->only(['index', 'show']);
+    Route::resource('internship-supervisors', 'InternshipSupervisorController')->only(['create', 'store', 'destroy']);
+    Route::resource('internship-cancellation', 'InternshipCancellationController')->only(['edit', 'update']);
 
         /** K05 - DSN */
 //    Route::resource('interns', 'InternController')->only(['index', 'show']);

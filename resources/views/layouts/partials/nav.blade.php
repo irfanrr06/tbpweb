@@ -85,7 +85,7 @@
         @endcanany
 
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('frontend.myintern-proposals.index') }}">
+            <a class="c-sidebar-nav-link" href="{{ route('frontend.internship-submission.index') }}">
                 <i class="cil-address-book c-sidebar-nav-icon"></i>
                 Proposal KP
             </a>
