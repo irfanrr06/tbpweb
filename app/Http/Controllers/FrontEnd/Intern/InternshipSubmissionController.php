@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
+use App\Models\Internship;
+use App\Models\InternshipAgency;
+use App\Models\InternshipProposal;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class InternshipSubmissionController extends Controller
 {
@@ -14,7 +20,7 @@ class InternshipSubmissionController extends Controller
      */
     public function index()
     {
-        //
+      
     }
 
     /**
@@ -55,9 +61,14 @@ class InternshipSubmissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(InternshipProposal $internship_submission)
     {
-        //
+        $proposal = InternshipProposal::all();
+        $pengusuls = Student::all();
+        $instansis = InternshipAgency::all()->pluck('name','id');
+        $statuses = InternshipProposal::STATUSES;
+
+        return view('klp04.submissions.edit', compact('proposal','internship_submission','pengusuls','instansis','statuses'));
     }
 
     /**
@@ -69,7 +80,11 @@ class InternshipSubmissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        InternshipProposal::where('id',$id)->update(['status'=>$request->status,
+                                                    'notes'=>$request->notes]);
+    
+        return redirect()->route('frontend.internship-submission.index');
+
     }
 
     /**

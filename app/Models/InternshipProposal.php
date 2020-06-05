@@ -13,12 +13,13 @@ class InternshipProposal extends Model
     const STATUS_REJECTED = 4;
 
     const STATUSES = [
-        self::STATUS_DRAFT => 'Draft',
-        self::STATUS_SUBMITTED => 'Submitted',
         self::STATUS_ACCEPTED => 'Diterima',
         self::STATUS_REVISED => 'Perlu Revisi',
         self::STATUS_REJECTED => 'Ditolak'
     ];
+
+    protected $table = 'internship_proposals';
+    protected $guarded = [];
 
     public function agency()
     {
@@ -51,4 +52,7 @@ class InternshipProposal extends Model
 
         }
     }
+    public static $validation_rules = [
+        'status'=>'required',
+    ];
 }
