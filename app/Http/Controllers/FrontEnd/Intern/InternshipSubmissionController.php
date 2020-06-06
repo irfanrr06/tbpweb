@@ -60,14 +60,12 @@ class InternshipSubmissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(InternshipProposal $internship_submission)
+    public function edit($id)
     {
-        $proposal = InternshipProposal::all();
-        $pengusuls = Student::all();
-        $instansis = InternshipAgency::all()->pluck('name','id');
+        $internship_submission = InternshipProposal::find($id);
         $statuses = InternshipProposal::STATUSES;
 
-        return view('klp04.submissions.edit', compact('proposal','internship_submission','pengusuls','instansis','statuses'));
+        return view('klp04.submissions.edit', compact('internship_submission','statuses'));
     }
 
     /**
