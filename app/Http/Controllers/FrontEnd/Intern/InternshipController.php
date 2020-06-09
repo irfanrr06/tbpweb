@@ -29,7 +29,6 @@ class InternshipController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -51,7 +50,7 @@ class InternshipController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
