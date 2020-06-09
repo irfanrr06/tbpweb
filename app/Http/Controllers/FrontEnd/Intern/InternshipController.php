@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
+use App\Models\Internship;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class InternshipController extends Controller
 {
@@ -14,8 +18,10 @@ class InternshipController extends Controller
      */
     public function index()
     {
+        $user_id = auth()->user()->id;
+        $internships = Internship::all();
+        return view('klp04.internships.index', compact('internships'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
