@@ -91,6 +91,15 @@
             </a>
         </li>
 
+        @can('lecturers_manage')
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{{ route('frontend.internships.index') }}">
+                <i class="cil-address-book c-sidebar-nav-icon"></i>
+                List KP (Per Mahasiswa)
+            </a>
+        </li>
+        @endcan
+
     </ul>
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"
             data-class="c-sidebar-unfoldable"></button>
