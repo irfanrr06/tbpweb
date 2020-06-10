@@ -24,17 +24,25 @@
                         {{--CARD HEADER --}}
                         <div class="card-header">
                             <strong><i class="cil-pencil"></i>Alasan Pembatalan KP</strong>
-                        </div>
+                        </div>   
+
+
 
                         {{-- CARD BODY--}}
                         <div class="card-body">
                             @include('klp04.cancellations._form')
                         </div>
 
+
+
+
                         {{-- CARD FOOTER--}}
                         <div class="card-footer">
                             <input type="submit" class="btn btn-primary" value="Simpan"/>
                         </div>
+
+
+                        
 
                         {{ html()->closeModelForm() }}
                     </div>
