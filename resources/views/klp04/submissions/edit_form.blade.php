@@ -1,3 +1,22 @@
+<div class="form-group">
+    <div class='form-label'>Nama Instansi</div>
+    <div>{{ $internship_submission->agency->name }}</div>
+</div>
+
+<div class="form-group">
+    <div class='form-label'>Periode</div>
+    <div>{{ $internship_submission->start_at }} s/d {{ $internship_submission->end_at }}</div>
+</div>
+
+<div class="form-group">
+    <div class='form-label'>Nama Pengusul</div>
+    @foreach($internship_submission->members as $member)
+    <div>
+        - {{ $member->student->name }} <br>
+        <small>{{ $member->student->nim }}</small>
+    </div>
+    @endforeach
+</div>
 
 <div class="form-group">
     <label class="form-label" for="status">Status Proposal</label>
