@@ -20,6 +20,9 @@ class InternshipProposal extends Model
         self::STATUS_REJECTED => 'Ditolak'
     ];
 
+    protected $table = 'internship_proposals';
+    protected $guarded = [];
+
     public function agency()
     {
         return $this->belongsTo(InternshipAgency::class);
@@ -51,4 +54,7 @@ class InternshipProposal extends Model
 
         }
     }
+    public static $validation_rules = [
+        'status'=>'required',
+    ];
 }
