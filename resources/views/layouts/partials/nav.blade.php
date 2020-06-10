@@ -15,10 +15,10 @@
             </a>
         </li>
 
-        @canany(['students_manage','lecturers_manage','staffs_manage','departments_manage','roles_manage'])
+        @canany(['students_manage','staffs_manage','departments_manage','roles_manage'])
             <li class="c-sidebar-nav-title">Master</li>
 
-            @canany(['students_manage','lecturers_manage','staffs_manage'])
+            @canany(['students_manage','staffs_manage'])
                 <li class="c-sidebar-nav-dropdown">
                     <a class="c-sidebar-nav-dropdown-toggle" href="/#">
                         <i class="cil-user c-sidebar-nav-icon"></i>
@@ -84,12 +84,23 @@
             @endcan
         @endcanany
 
+        @can('lecturers_manage')
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('frontend.internship-submission.index') }}">
                 <i class="cil-address-book c-sidebar-nav-icon"></i>
                 Proposal KP
             </a>
         </li>
+        @endcan
+
+        @can('lecturers_manage')
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{{ route('frontend.internships.index') }}">
+                <i class="cil-address-book c-sidebar-nav-icon"></i>
+                List KP (Per Mahasiswa)
+            </a>
+        </li>
+        @endcan
 
     </ul>
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"
