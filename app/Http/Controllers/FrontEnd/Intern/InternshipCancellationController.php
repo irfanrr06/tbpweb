@@ -66,7 +66,6 @@ class InternshipCancellationController extends Controller
         $internship = Internship::find($id);
         $statuses = Internship::STATUSES;
         return view('klp04.cancellations.edit', compact('internship','statuses'));
-
     }
 
     /**

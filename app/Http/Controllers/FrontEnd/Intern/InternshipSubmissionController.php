@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
+use App\Models\Internship;
+use App\Models\InternshipAgency;
+use App\Models\InternshipProposal;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class InternshipSubmissionController extends Controller
 {
@@ -14,7 +20,9 @@ class InternshipSubmissionController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = auth()->user()->id;
+        $proposals = InternshipProposal::all();
+        return view('klp04.submissions.index', compact('proposals'));
     }
 
     /**
@@ -57,7 +65,10 @@ class InternshipSubmissionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $internship_submission = InternshipProposal::find($id);
+        $statuses = InternshipProposal::STATUSES;
+
+        return view('klp04.submissions.edit', compact('internship_submission','statuses'));
     }
 
     /**
@@ -69,7 +80,11 @@ class InternshipSubmissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        InternshipProposal::where('id',$id)->update(['status'=>$request->status,
+                                                    'notes'=>$request->notes]);
+    
+        return redirect()->route('frontend.internship-submission.index');
+
     }
 
     /**
