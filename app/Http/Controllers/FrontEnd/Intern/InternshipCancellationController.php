@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
+use App\Models\Internship;
+use App\Models\InternshipAgency;
+use App\Models\InternshipProposal;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class InternshipCancellationController extends Controller
 {
@@ -57,7 +63,10 @@ class InternshipCancellationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $internship = Internship::find($id);
+        $statuses = Internship::STATUSES;
+        return view('klp04.cancellations.edit', compact('internship','statuses'));
+
     }
 
     /**
@@ -69,7 +78,12 @@ class InternshipCancellationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $internship = Internship::find($id);
+        Internship::where('id',$id)->update(['status'=>1,
+                                             'field'=>$request->field]);
+        
+        notify('success', 'KP '.$internship->student->name.' Dibatalkan');
+        return redirect()->route('frontend.internships.index');
     }
 
     /**
