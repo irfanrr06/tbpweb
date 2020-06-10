@@ -20,6 +20,9 @@ class InternshipSubmissionController extends Controller
      */
     public function index()
     {
+        $user_id = auth()->user()->id;
+        $proposals = InternshipProposal::all();
+        return view('klp04.submissions.index', compact('proposals'));
     }
 
     /**
