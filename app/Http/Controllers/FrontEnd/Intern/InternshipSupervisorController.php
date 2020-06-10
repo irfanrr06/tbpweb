@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
+use App\Models\Internship;
+use App\Models\Lecturer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class InternshipSupervisorController extends Controller
@@ -22,9 +25,8 @@ class InternshipSupervisorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $id)
     {
-        //
     }
 
     /**
@@ -35,7 +37,6 @@ class InternshipSupervisorController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -80,6 +81,5 @@ class InternshipSupervisorController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
 }

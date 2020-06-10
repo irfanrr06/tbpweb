@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
+use App\Models\Internship;
 use Illuminate\Http\Request;
 
 class InternshipCancellationController extends Controller
@@ -57,7 +58,6 @@ class InternshipCancellationController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -69,7 +69,6 @@ class InternshipCancellationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**

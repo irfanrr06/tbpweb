@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
+use App\Models\Internship;
+use App\Models\InternshipProposal;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class InternshipController extends Controller
@@ -23,6 +26,7 @@ class InternshipController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -44,7 +48,9 @@ class InternshipController extends Controller
      */
     public function show($id)
     {
-       //
+        $internships = Internship::find($id);
+        return view('klp04.internships.show', compact(
+            'internships'));
     }
 
     /**
