@@ -1,3 +1,5 @@
+
+
 <div class="form-group">
     <div class='form-label'>Nama Mahasiswa</div>
     <div>{{ $internships->student->name }}</div>
@@ -24,10 +26,33 @@
         <tr>
             <td>Name</td>
             <td>:</td>
-            <td><div>{{ $internships->field_advisor_name ?? "-"}}</div></td>
+            <td><div>{{ $internships->advisor->name ?? "-"}}</div></td>
         </tr>
         <tr>
             <td>NIP</td>
+            <td>:</td>
+            <td><div>{{ $internships->advisor->nip ?? "-"}}</div></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>:</td>
+            <td>{{ $internships->advisor->phone ?? "-"}}</td>
+        </tr>
+        </tr>
+
+    </table>
+</div>
+
+<div class="form-group">
+    <div class='form-label'>Pembimbing Lapangan</div>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td><div>{{ $internships->field_advisor_name ?? "-"}}</div></td>
+        </tr>
+        <tr>
+            <td>No Pegawai</td>
             <td>:</td>
             <td><div>{{ $internships->field_advisor_no ?? "-"}}</div></td>
         </tr>
@@ -39,7 +64,25 @@
         <tr>
             <td>Email</td>
             <td>:</td>
-            <td><div>{{ $internships->field_advisor_email ?? "-"}}</div></td>
+            <td>{{ $internships->field_advisor_email?? "-"}}</td>
+        </tr>
+        </tr>
+
+    </table>
+</div>
+
+<div class="form-group">
+    <div class='form-label'>Seminar</div>
+    <table>
+        <tr>
+            <td>Tanggal</td>
+            <td>:</td>
+            <td><div>{{ $internships->seminar_date ?? "-"}}</div></td>
+        </tr>
+        <tr>
+            <td>Waktu</td>
+            <td>:</td>
+            <td><div>{{ $internships->seminar_time ?? "-"}}</div></td>
         </tr>
 
     </table>
