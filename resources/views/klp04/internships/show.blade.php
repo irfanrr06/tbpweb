@@ -36,6 +36,17 @@
                 <div class="card-body">
                     @include('klp04.internships._detail')
                 </div>
+                
+                <div class="col-md-3">
+                    <div class="card">
+                      <div class="card-header">
+                        <strong><i class="cil-file"></i> Files</strong>
+                      </div>
+                      <div class="card-body">
+                        @include('klp04.internships._file')
+                      </div>
+                    </div>
+                </div>
 
                 {{--CARD FOOTER--}}
                 <div class="card-footer">

@@ -27,12 +27,10 @@ class InternshipSupervisorController extends Controller
      */
     public function create(Request $id)
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
         $internships_id = $id;
         $lecturer = Lecturer::all()->pluck('name','id');
         return view('klp04.supervisors.create', compact(
-            '$user','internships_id','lecturer'
+            'internships_id','lecturer'
         ));
     }
 
@@ -46,17 +44,8 @@ class InternshipSupervisorController extends Controller
     {
         $id = $request->id;
         $advisor_id = $request->advisor_id;
-        $advisor = Lecturer::find($advisor_id);
-        $name = $advisor->name;
-        $no = $advisor->nip;
-        $phone = $advisor->phone;
-        $email = $advisor->user->email;
         $internships = Internship::find($id);
         Internship::where('id',$id)->update(['advisor_id'=>$request->advisor_id,
-                                            'field_advisor_name'=>$name,
-                                            'field_advisor_no'=>$no,
-                                            'field_advisor_phone'=>$phone,
-                                            'field_advisor_email'=>$email
                                            ]);
 
         notify('success', 'Berhasil Menambahkan Dosen Pembimbing ');
@@ -107,10 +96,6 @@ class InternshipSupervisorController extends Controller
     {
         $internships = Internship::find($id);
         Internship::where('id',$id)->update(['advisor_id'=>null,
-                                            'field_advisor_name'=>null,
-                                            'field_advisor_no'=>null,
-                                            'field_advisor_phone'=>null,
-                                            'field_advisor_email'=>null
                                            ]);
 
         notify('success', 'Berhasil menghapus data dosbing ');
