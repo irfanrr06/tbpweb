@@ -10,6 +10,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class InternshipSubmissionController extends Controller
 {
     /**
@@ -19,7 +20,9 @@ class InternshipSubmissionController extends Controller
      */
     public function index()
     {
-
+        $user_id = auth()->user()->id;
+        $proposals = InternshipProposal::all();
+        return view('klp04.submissions.index', compact('proposals'));
     }
 
     /**
