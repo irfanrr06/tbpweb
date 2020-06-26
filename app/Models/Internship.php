@@ -31,6 +31,11 @@ class Internship extends Model
     {
         return $this->belongsTo(Student::class, 'student_id', 'id');
     }
+    
+    public function advisor()
+    {
+        return $this->belongsTo(Lecturer::class, 'advisor_id', 'id');
+    }
 
     public function getStatusTextAttribute($value){
         switch ($this->status){
