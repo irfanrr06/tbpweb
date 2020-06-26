@@ -24,6 +24,7 @@
                     <th>Periode</th>
                     <th>Pengusul</th>
                     <th>Status</th>
+                    <th>Proposal</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -41,13 +42,15 @@
                         <td>
                             @foreach($proposal->members as $member)
                                 <div>
-                                    {{ $member->student->name }} <br>
-                                    <small>{{ $member->student->nim }}</small>
+                                    {{ $member->student->name }} / {{ $member->student->nim }}
                                 </div>
                             @endforeach
                         </td>
                         <td>
                             <h4>{!! $proposal->status_text !!}</h4>
+                        </td>
+                        <td>
+                             <a href={{ asset('../storage/app/file_proposal/'. $proposal->file) }}>Download</a>
                         </td>
                         <td>
                             {!! cui()->btn_edit(route('frontend.internship-submission.edit', [$proposal->id])) !!}
