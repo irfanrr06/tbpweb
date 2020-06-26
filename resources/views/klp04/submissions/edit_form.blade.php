@@ -1,4 +1,11 @@
 <div class="form-group">
+  <div class="form-label">File Proposal</div>
+  <div class="">
+    <a href={{ asset('../storage/app/file_proposal/'. $internship_submission->file) }}>Download</a>
+  </div>
+</div>
+
+<div class="form-group">
     <div class='form-label'>Nama Instansi</div>
     <div>{{ $internship_submission->agency->name }}</div>
 </div>
@@ -12,10 +19,19 @@
     <div class='form-label'>Nama Pengusul</div>
     @foreach($internship_submission->members as $member)
     <div>
-        - {{ $member->student->name }} <br>
-        <small>{{ $member->student->nim }}</small>
+        - {{ $member->student->name }} / {{ $member->student->nim }}
     </div>
     @endforeach
+</div>
+
+<div class="form-group">
+    <div class='form-label'>Latar Belakang</div>
+    <div>{{ $internship_submission->background }}</div>
+</div>
+
+<div class="form-group">
+    <div class='form-label'>Rencana</div>
+    <div>{{ $internship_submission->plan }}</div>
 </div>
 
 <div class="form-group">
